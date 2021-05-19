@@ -1,0 +1,11 @@
+export const MEN='MEN';
+export const WOMEN='WOMEN';
+export const KIDS='KIDS';
+export const FURNITURE='FURNITURE';
+export const ADD_TO_BAG ='ADD_TO_BAG';
+export const REMOVE_TO_BAG='REMOVE_TO_BAG';
+export const CHECKOUT='CHECKOUT';
+export const ADDRESS='ADDRESS';
+export const SIGNUP='SIGNUP';
+export const WISHLIST='WISHLIST';
+export const REMOVE='REMOVE';
