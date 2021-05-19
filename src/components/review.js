@@ -8,16 +8,11 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import {  useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout'
 import { Button } from '@material-ui/core';
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-
-
+import CssBaseline from '@material-ui/core/CssBaseline';
 const useStyles = makeStyles((theme) => ({
   listItem: {
     padding: theme.spacing(1, 0),
@@ -31,7 +26,26 @@ const useStyles = makeStyles((theme) => ({
     table: {
       minWidth: 650,
     },
- 
+   layout: {
+    width: 'auto',
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+      width: 600,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
+  paper: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(2),
+    [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
+      padding: theme.spacing(3),
+    },
+  },
 }));
 const pay = token => {
       const body = {
@@ -62,6 +76,9 @@ export default function Review() {
   console.log(tt)
   return (
     <React.Fragment>
+      <CssBaseline />
+      <main className={classes.layout}>
+      <Paper className={classes.paper}>
       <Typography variant="h6" gutterBottom>
         Order summary
       </Typography>
@@ -119,9 +136,17 @@ export default function Review() {
         </Grid>
      
            <StripeCheckout stripeKey="pk_test_51Ig2N0SGrPnX6m5QC7LwnfsgzMB72ldaekEhJEpPzWhSL8kW15Eef1lKi2igBAWYEkhqkvH7TUDJ6YPVuvcuW5Zw0025lRjvIC" token={pay} name='Make Payment' amount={tt*100}>
-         <button className='btn-large'>Place Orders</button>
+         <Button
+                  style={{color:'white', position:'fixed',backgroundColor:'red',
+                  bottom: '7%',
+                  right: '3%',
+                }}>
+            Place Order
+    </Button>
       </StripeCheckout>
       </Grid>
+      </Paper>
+     </main>
     </React.Fragment>
   );
 }

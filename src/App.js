@@ -19,9 +19,6 @@ import Address from './components/address';
 import Payment from './components/payment';
 import Review from './components/review';
 import Wishlist from './components/wishlist';
-import BreadCrumbs from './components/breadCrumbs'
-import StripeCheckout from 'react-stripe-checkout'
-import API from './components/baseurl'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -56,38 +53,4 @@ class App extends Component {
     );
   }
 }
-// function App() {
-//   const [product, setProduct] = useState({
-//     name: 'react',
-//     price: 19,
-//     productBy: "facebook"
-//   })
-//   const pay = token => {
-//     const body = {
-//       token,
-//       product
-//     }
-//     return fetch('http://localhost:3000/checkout/payment', {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify(body)
-//     }).then(res => {
-//       console.log("ressssss", res)
-//       const { status } = res
-//       console.log('ssss', status)
-//     })
-//       .catch(err => {
-//         console.log(err)
-//       })
-//   }
-//   return (
-//     <>
-//       <StripeCheckout stripeKey="pk_test_51Ig2N0SGrPnX6m5QC7LwnfsgzMB72ldaekEhJEpPzWhSL8kW15Eef1lKi2igBAWYEkhqkvH7TUDJ6YPVuvcuW5Zw0025lRjvIC" token={pay} name='Make Payment' amount={product.price*100}>
-//         <button className='btn-large'>Pay</button>
-//       </StripeCheckout>
-//     </>
-//   )
-// }
 export default App;

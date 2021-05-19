@@ -101,7 +101,7 @@ class Bag extends Component {
                                ))}    
                        
                     </Grid>
-                  <Link to ={{pathname:'/bag/checkout'}} style={{textDecoration:'none'}}><Button
+                  <Link to ={{pathname:'/addressform'}} style={{textDecoration:'none'}}><Button
                   style={{color:'white', position:'fixed',backgroundColor:'red',
                   bottom: '7%',
                   right: '3%',

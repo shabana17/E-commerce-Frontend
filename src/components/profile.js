@@ -50,32 +50,32 @@ class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            _id:this.props.signup._id,           
+            _id: this.props.signup._id,
             username: this.props.signup.username,
             email: this.props.signup.email,
             password: this.props.signup.password,
-           location: this.props.signup.location,
+            location: this.props.signup.state,
             country: '',
             image: '',
-           // open:false
+            // open:false
         }
     }
-componentDidMount(){
-    // API.get('/user/my-profile', {
-    //     headers: {
-    //         'Authorization': localStorage.getItem('tokens'),
-    //         'Content-Type': 'application/json'
-    //       }
-    //   })
-    //     .then(response=> {
-    //       console.log(localStorage.getItem('tokens'));
-    //       store.dispatch({
-    //         type: SIGNUP,
-    //         payload: response.data
-    //       })
-    //     }).catch(err => {
-    //       alert(err)
-    //     })
+    componentDidMount() {
+        // API.get('/user/my-profile', {
+        //     headers: {
+        //         'Authorization': localStorage.getItem('token'),
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+        //     .then(response => {
+        //         console.log(localStorage.getItem('token'));
+        //         store.dispatch({
+        //             type: SIGNUP,
+        //             payload: response.data
+        //         })
+        //     }).catch(err => {
+        //         alert(err)
+        //     })
     }
 
     images(event) {
@@ -117,14 +117,14 @@ componentDidMount(){
     }
     profile = (event) => {
         event.preventDefault();
-        // API.put(`/user/edit-profile/${this.state._id}`, this.state, {
-        
-        // })
-        //     .then(res => {
-        //         console.log(res.data);
-        //        }).catch(err => {
-        //         alert(err)
-        //     })
+        API.put(`/user/edit-profile/${this.state._id}`, this.state, {
+
+        })
+            .then(res => {
+                console.log(res.data);
+            }).catch(err => {
+                alert(err)
+            })
         alert(`username: ${this.state.username}, email: ${this.state.email}, password: ${this.state.password}, state: ${this.state.location}, country:${this.state.country}`)
         store.dispatch({
             type: SIGNUP,
@@ -133,11 +133,11 @@ componentDidMount(){
         })
     }
 
-// handleClose=()=>{
-//     this.setState({
-//         open:false
-//     })
-// }
+    // handleClose=()=>{
+    //     this.setState({
+    //         open:false
+    //     })
+    // }
     render() {
 
         const { classes } = this.props;
@@ -153,16 +153,16 @@ componentDidMount(){
                         <form className={classes.form} noValidate>
                             <Grid container>
                                 <Grid item sm={12} md={12}>
-                                        <img src={this.state.image} style={{ textAlign: 'center', marginLeft: '110px', height: '150px', width: '150px' }} ></img><br />
-                                        <br />
-                                        <div style={{textAlign:'center'}}>
-                                    <Button
-                                        component="label"
-                                        variant="contained"
-                                        style={{color:'white',backgroundColor:'black'}}>
-                                        Edit Profile Pic
+                                    <img src={this.state.image} style={{ textAlign: 'center', marginLeft: '110px', height: '150px', width: '150px' }} ></img><br />
+                                    <br />
+                                    <div style={{ textAlign: 'center' }}>
+                                        <Button
+                                            component="label"
+                                            variant="contained"
+                                            style={{ color: 'white', backgroundColor: 'black' }}>
+                                            Edit Profile Pic
                                        <input type="file" hidden accept="image/*" onChange={this.images.bind(this)} />
-                                    </Button>
+                                        </Button>
                                     </div>
                                 </Grid>
 
@@ -252,7 +252,7 @@ componentDidMount(){
                                     >
                                         Edit Profile
           </Button>
-          {/* <Button style={{ margin: '20px' }}
+                                    {/* <Button style={{ margin: '20px' }}
                                         type="button"
                                         fullWidth
                                         variant="contained"

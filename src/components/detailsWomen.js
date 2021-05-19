@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import store from '../redux/store/store';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import LoyaltyIcon from '@material-ui/icons/Loyalty'
-import { ADD_TO_BAG, WISHLIST} from '../redux/actions/actions';
+import { ADD_TO_BAG, WISHLIST } from '../redux/actions/actions';
 import { withStyles } from "@material-ui/core/styles";
 import BreadCrumbs from './breadCrumbs'
 import LoginAlert from './loginAlert'
@@ -139,16 +139,16 @@ class DetailsWomen extends Component {
                                     <hr />
                                     <Grid item>
                                         <Button style={{ color: 'white', backgroundColor: 'red', textAlign: 'center' }} onClick={() => {
-                                            //       if (!localStorage.getItem('token')) {
-                                            //         this.setState({
-                                            //         open:true
-                                            //     })
-                                            // }
-                                            // else if (!this.state.size){
-                                            //   this.setState({
-                                            //       opensize:true
-                                            //   })
-                                            // }
+                                            if (!localStorage.getItem('token')) {
+                                                this.setState({
+                                                    open: true
+                                                })
+                                            }
+                                            else if (!this.state.size) {
+                                                this.setState({
+                                                    opensize: true
+                                                })
+                                            }
                                             //     else {                                        
                                             //         const pr={id:this.state.id,image:this.state.image,title:this.state.title,description:this.state.description,size:this.state.size,price:this.state.price,quant:this.state.quant,total:this.state.quant*this.state.price}
                                             //         store.dispatch({
@@ -156,37 +156,37 @@ class DetailsWomen extends Component {
                                             //             payload:pr
                                             //         })
                                             //     }
-                                            // else{
-                                                const prs = { userId: "609fca1769062014bcc38c7a", productId: this.state._id, size: this.state.size, quant: this.state.quant,image:this.state.image,title:this.state.title,price:this.state.price,total: this.state.quant * this.state.price }
-                                        
-                                            API.post('/add-to-cart/create-cart', prs, {})
-                                                .then(response => {
-                                                    console.log('response of signup', response);
-                                                    alert(response)
-                                                }).catch(err => {
-                                                    console.log(err)
-                                                    alert(err)
+                                            else {
+                                                const prs = { userId: "609fca1769062014bcc38c7a", productId: this.state._id, size: this.state.size, quant: this.state.quant, image: this.state.image, title: this.state.title, price: this.state.price, total: this.state.quant * this.state.price }
+
+                                                API.post('/add-to-cart/create-cart', prs, {})
+                                                    .then(response => {
+                                                        console.log('response of signup', response);
+                                                        alert(response)
+                                                    }).catch(err => {
+                                                        console.log(err)
+                                                        alert(err)
+                                                    })
+
+                                                store.dispatch({
+                                                    type: ADD_TO_BAG,
+                                                    payload: prs
                                                 })
-                                         
-                                            store.dispatch({
-                                                type: ADD_TO_BAG,
-                                                payload: prs
-                                            })
-                                        // }
+                                            }
                                         }}>
                                             < LocalMallIcon />    Add To bag
                                     </Button>
                                         <Button style={{ color: 'black', backgroundColor: 'white', textAlign: 'center', border: '1px solid black', marginLeft: '10px' }} onClick={() => {
-                                            // if (!localStorage.getItem('token')) {
-                                            //     this.setState({
-                                            //         open: true
-                                            //     })
-                                            // }
-                                            // else if (!this.state.size) {
-                                            //     this.setState({
-                                            //         opensize: true
-                                            //     })
-                                            // }
+                                            if (!localStorage.getItem('token')) {
+                                                this.setState({
+                                                    open: true
+                                                })
+                                            }
+                                            else if (!this.state.size) {
+                                                this.setState({
+                                                    opensize: true
+                                                })
+                                            }
                                             // else {
                                             //     const pr = { id: this.state.id, image: this.state.image, title: this.state.title, description: this.state.description, size: this.state.size, price: this.state.price, quant: this.state.quant, total: this.state.quant * this.state.price }
 
@@ -196,23 +196,22 @@ class DetailsWomen extends Component {
                                             //     })
                                             // }
 
-                                            
-                                            const prs = { userId: "609fca1769062014bcc38c7a", productId: this.state._id, size: this.state.size, quant: this.state.quant,image:this.state.image,title:this.state.title,price:this.state.price,total: this.state.quant * this.state.price }
-                                        
-                                            API.post('/wishlist/create-wishlist', prs, {})
-                                                .then(response => {
-                                                    console.log('response of signup', response);
-                                                    alert(response)
-                                                }).catch(err => {
-                                                    console.log(err)
-                                                    alert(err)
-                                                })
-                                          //  const pr = { userId: "609fca1769062014bcc38c7a", productId: this.state.productId, image: this.state.image, title: this.state.title, description: this.state.description, size: this.state.size, price: this.state.price, quant: this.state.quant, total: this.state.quant * this.state.price }
+                                            else {
+                                                const pri = { userId: "609fca1769062014bcc38c7a", productId: this.state._id, size: this.state.size, quant: this.state.quant, image: this.state.image, title: this.state.title, price: this.state.price, total: this.state.quant * this.state.price }
 
-                                            store.dispatch({
-                                                type: WISHLIST,
-                                                payload: prs
-                                            })
+                                                API.post('/wishlist/create-wishlist', pri, {})
+                                                    .then(response => {
+                                                        console.log('response', response);
+                                                        alert(response)
+                                                    }).catch(err => {
+                                                        console.log(err)
+                                                        alert(err)
+                                                    })
+                                                store.dispatch({
+                                                    type: WISHLIST,
+                                                    payload: pri
+                                                })
+                                            }
                                         }}>
                                             <LoyaltyIcon /> WishList
                                     </Button>

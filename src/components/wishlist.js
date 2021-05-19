@@ -83,9 +83,10 @@ class Wishlist extends Component {
                                         //         payload:bags
                                         //     })
                                         // }
-                                        const prs = { userId: "609fca1769062014bcc38c7a", productId: this.state._id, size: this.state.size, quant: this.state.quant,image:this.state.image,title:this.state.title,price:this.state.price,total: this.state.quant * this.state.price }
-                                        
-                                        API.post('/add-to-cart/create-cart', prs, {})
+                                        console.log('baagggss',bags)
+                                        const prs = { userId: "609fca1769062014bcc38c7a", productId: this.state.productId, size: this.state.size, quant: this.state.quant,image:this.state.image,title:this.state.title,price:this.state.price,total: this.state.quant * this.state.price }
+                                        console.log('prrr',prs)
+                                        API.post('/add-to-cart/create-cart', bags, {})
                                             .then(response => {
                                                 console.log('response ', response);
                                                 alert(response)
@@ -96,7 +97,7 @@ class Wishlist extends Component {
                                      
                                         store.dispatch({
                                             type: ADD_TO_BAG,
-                                            payload: prs
+                                            payload: bags
                                         })
                                     }}>
                                         < LocalMallIcon />    Move to bag
