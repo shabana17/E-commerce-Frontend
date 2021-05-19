@@ -119,7 +119,7 @@ export default function Review() {
         </Grid>
      
            <StripeCheckout stripeKey="pk_test_51Ig2N0SGrPnX6m5QC7LwnfsgzMB72ldaekEhJEpPzWhSL8kW15Eef1lKi2igBAWYEkhqkvH7TUDJ6YPVuvcuW5Zw0025lRjvIC" token={pay} name='Make Payment' amount={tt*100}>
-         <button className='btn-large'>Place Order</button>
+         <button className='btn-large'>Place Orders</button>
       </StripeCheckout>
       </Grid>
     </React.Fragment>
